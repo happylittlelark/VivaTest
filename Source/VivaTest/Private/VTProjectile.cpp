@@ -51,7 +51,9 @@ void AVTProjectile::OnProjectileStop(const FHitResult& HitResult)
 		return;
 	}
 
-	if (AActor* HitActor = HitResult.GetActor())
+	AActor* HitActor = HitResult.GetActor();
+	
+	if (IsValid(HitActor) && HitActor->CanBeDamaged())
 	{
 		const FPointDamageEvent DamageEvent = FPointDamageEvent(Damage, HitResult, GetActorForwardVector(), DamageType);
 		const float ActualDamage = HitActor->TakeDamage(Damage, DamageEvent, GetInstigatorController(), this);
@@ -67,7 +69,6 @@ void AVTProjectile::OnProjectileStop(const FHitResult& HitResult)
 	}
 
 	Destroy();
-	
 }
 
 // Called every frame

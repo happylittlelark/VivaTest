@@ -25,7 +25,7 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetScore(const float NewScore);
 	UFUNCTION(BlueprintCallable)
-	void SetName(const FName& NewName);
+	void SetName(const FString& NewName);
 	
 	UFUNCTION(BlueprintImplementableEvent)
 	UVTScoreViewModel* GetViewModel() const;

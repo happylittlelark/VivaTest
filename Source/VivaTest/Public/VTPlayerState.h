@@ -21,12 +21,12 @@ public:
 	virtual void BeginPlay() override;
 
 	virtual void OnRep_Score() override;
+	virtual void OnRep_PlayerName() override;
 	
 	void ScorePoint();
 
 	UFUNCTION(Client, Unreliable)
 	void ClientInitialiseScoreWidget(APlayerState* PlayerState);
-
 
 protected:
 

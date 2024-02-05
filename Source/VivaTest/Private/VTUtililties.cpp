@@ -11,11 +11,12 @@
 
 void UVTUtilities::SetViewModel(const UUserWidget* UserWidget, const FName& Name, UMVVMViewModelBase* ViewModel)
 {
-	if (!IsValid(GEngine))
+	if (!IsValid(UserWidget))
 	{
 		return;
 	}
-	if (!IsValid(UserWidget))
+
+	if (!IsValid(GEngine))
 	{
 		return;
 	}

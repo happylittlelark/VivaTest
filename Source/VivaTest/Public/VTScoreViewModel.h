@@ -20,11 +20,19 @@ public:
 	float GetScore() const;
 	UFUNCTION()
 	void SetScore(const float NewScore);
+
+	UFUNCTION(BlueprintPure, FieldNotify)
+	const FString& GetName() const;
+	UFUNCTION()
+	void SetName(const FString& NewName);
 	
 protected:
 
 private:
 	UPROPERTY(BlueprintReadOnly, FieldNotify, Setter, Getter, meta=(AllowPrivateAccess))
 	float Score;
+	
+	UPROPERTY(BlueprintReadOnly, FieldNotify, Setter, Getter, meta=(AllowPrivateAccess))
+	FString Name;
 	
 };

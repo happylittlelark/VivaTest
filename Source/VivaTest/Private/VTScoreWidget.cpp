@@ -33,12 +33,12 @@ void UVTScoreWidget::SetScore(const float NewScore)
 	Score->SetCurrentValue(NewScore);
 }
 
-void UVTScoreWidget::SetName(const FName& NewName)
+void UVTScoreWidget::SetName(const FString& NewName)
 {
 	if (!IsValid(Name))
 	{
 		return;
 	}
 	
-	Name->SetText(FText::FromName(NewName));
+	Name->SetText(FText::FromString(NewName));
 }

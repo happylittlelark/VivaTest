@@ -24,11 +24,6 @@ void AVTGameState::AddPlayerState(APlayerState* PlayerState)
 		
 		for (APlayerState* Player : PlayerArray)
 		{
-			if (!Player->HasLocalNetOwner())
-			{
-				continue;
-			}
-
 			VTPlayerState->ClientInitialiseScoreWidget(PlayerState);
 		}
 	}

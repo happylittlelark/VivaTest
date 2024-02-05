@@ -20,14 +20,19 @@ void AVTPlayerState::OnRep_Score()
 		return;
 	}
 	
-	const APlayerController* PlayerController = GetPlayerController();
+	ScoreViewModel->SetScore(GetScore());
+}
 
-	if (!IsValid(PlayerController) || !PlayerController->IsLocalController())
+void AVTPlayerState::OnRep_PlayerName()
+{
+	Super::OnRep_PlayerName();
+
+	if (!IsValid(ScoreViewModel))
 	{
 		return;
 	}
-
-	ScoreViewModel->SetScore(GetScore());
+	
+	ScoreViewModel->SetName(GetPlayerName());
 }
 
 void AVTPlayerState::ScorePoint()
@@ -40,25 +45,11 @@ void AVTPlayerState::ScorePoint()
 	const float NewScore = GetScore() + 1.f;
 	
 	SetScore(NewScore);
-
-	if (!IsValid(ScoreViewModel))
-	{
-		return;
-	}
-
-	const APlayerController* PlayerController = GetPlayerController();
-
-	if (!IsValid(PlayerController) || !HasAuthority())
-	{
-		return;
-	}
-	
-	ScoreViewModel->SetScore(GetScore());
 }
 
 void AVTPlayerState::ClientInitialiseScoreWidget_Implementation(APlayerState* PlayerState)
 {
-	APlayerController* PlayerController = GetWorld()->GetFirstPlayerController<APlayerController>();
+	const APlayerController* PlayerController = GetWorld()->GetFirstPlayerController<APlayerController>();
 
 	if (!IsValid(PlayerController))
 	{
@@ -72,12 +63,21 @@ void AVTPlayerState::ClientInitialiseScoreWidget_Implementation(APlayerState* Pl
 		return;
 	}
 
+	// Already created, don't recreate
+	if (IsValid(ScoreViewModel))
+	{
+		return;
+	}
+
 	ScoreViewModel = NewObject<UVTScoreViewModel>(this);
 
 	if (!IsValid(ScoreViewModel))
 	{
 		return;
 	}
+
+	ScoreViewModel->SetScore(PlayerState->GetScore());
+	ScoreViewModel->SetName(PlayerState->GetPlayerName());
 	
 	HUD->InitialiseScore(ScoreViewModel);
 }
