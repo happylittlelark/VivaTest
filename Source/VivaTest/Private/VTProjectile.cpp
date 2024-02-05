@@ -15,7 +15,7 @@
 AVTProjectile::AVTProjectile()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 
 	MovementComponent = CreateDefaultSubobject<UProjectileMovementComponent>("Movement Component");
 	Body = CreateDefaultSubobject<UStaticMeshComponent>("Body");
@@ -33,7 +33,6 @@ AVTProjectile::AVTProjectile()
 void AVTProjectile::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 void AVTProjectile::EndPlay(const EEndPlayReason::Type EndPlayReason)
@@ -41,7 +40,6 @@ void AVTProjectile::EndPlay(const EEndPlayReason::Type EndPlayReason)
 	Super::EndPlay(EndPlayReason);
 	
 	MovementComponent->OnProjectileStop.RemoveDynamic(this, &ThisClass::OnProjectileStop);
-
 }
 
 void AVTProjectile::OnProjectileStop(const FHitResult& HitResult)
@@ -69,12 +67,6 @@ void AVTProjectile::OnProjectileStop(const FHitResult& HitResult)
 	}
 
 	Destroy();
-}
-
-// Called every frame
-void AVTProjectile::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
 }
 
 void AVTProjectile::Fire(const float Force) const

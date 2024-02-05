@@ -32,7 +32,7 @@ void AVTPlayerState::OnRep_PlayerName()
 		return;
 	}
 	
-	ScoreViewModel->SetName(GetPlayerName());
+	ScoreViewModel->SetPlayerName(GetPlayerName());
 }
 
 void AVTPlayerState::ScorePoint()
@@ -77,7 +77,7 @@ void AVTPlayerState::ClientInitialiseScoreWidget_Implementation(APlayerState* Pl
 	}
 
 	ScoreViewModel->SetScore(PlayerState->GetScore());
-	ScoreViewModel->SetName(PlayerState->GetPlayerName());
+	ScoreViewModel->SetPlayerName(PlayerState->GetPlayerName());
 	
 	HUD->InitialiseScore(ScoreViewModel);
 }

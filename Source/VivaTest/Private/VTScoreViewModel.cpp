@@ -13,12 +13,12 @@ void UVTScoreViewModel::SetScore(const float NewScore)
 	UE_MVVM_SET_PROPERTY_VALUE(Score, NewScore);
 }
 
-const FString& UVTScoreViewModel::GetName() const
+const FString& UVTScoreViewModel::GetPlayerName() const
 {
-	return Name;
+	return PlayerName;
 }
 
-void UVTScoreViewModel::SetName(const FString& NewName)
+void UVTScoreViewModel::SetPlayerName(const FString& NewName)
 {
-	UE_MVVM_SET_PROPERTY_VALUE(Name, NewName);
+	UE_MVVM_SET_PROPERTY_VALUE(PlayerName, NewName);
 }

@@ -22,9 +22,9 @@ public:
 	void SetScore(const float NewScore);
 
 	UFUNCTION(BlueprintPure, FieldNotify)
-	const FString& GetName() const;
+	const FString& GetPlayerName() const;
 	UFUNCTION()
-	void SetName(const FString& NewName);
+	void SetPlayerName(const FString& NewPlayerName);
 	
 protected:
 
@@ -33,6 +33,6 @@ private:
 	float Score;
 	
 	UPROPERTY(BlueprintReadOnly, FieldNotify, Setter, Getter, meta=(AllowPrivateAccess))
-	FString Name;
+	FString PlayerName;
 	
 };

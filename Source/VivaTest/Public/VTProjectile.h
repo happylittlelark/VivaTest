@@ -25,8 +25,6 @@ protected:
 	void OnProjectileStop(const FHitResult& HitResult);
 
 public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 	void Fire(const float Force) const;
 
 private:
@@ -44,6 +42,4 @@ private:
 
 	UPROPERTY(Category=Projectile, VisibleAnywhere, meta=(AllowPrivateAccess = "true"))
 	float Damage = 10.f;
-
-	
 };
