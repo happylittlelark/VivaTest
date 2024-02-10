@@ -2,9 +2,8 @@
 
 #pragma once
 
-
 #include "CoreMinimal.h"
-#include <Blueprint/IUserObjectListEntry.h>
+#include "Blueprint/IUserObjectListEntry.h"
 #include "Blueprint/UserWidget.h"
 #include "VTScoreWidget.generated.h"
 
@@ -26,9 +25,6 @@ public:
 	void SetScore(const float NewScore);
 	UFUNCTION(BlueprintCallable)
 	void SetName(const FString& NewName);
-	
-	UFUNCTION(BlueprintImplementableEvent)
-	UVTScoreViewModel* GetViewModel() const;
 	
 protected:
 	UPROPERTY(meta = (BindWidget))

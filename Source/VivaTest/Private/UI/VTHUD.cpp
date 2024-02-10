@@ -1,9 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "VTHUD.h"
-#include "VTScoreListWidget.h"
-#include "VTScoreViewModel.h"
+#include "UI/VTHUD.h"
+#include "UI/VTScoreListWidget.h"
+#include "UI/VTScoreViewModel.h"
 
 void AVTHUD::InitialiseScore(UVTScoreViewModel* ScoreViewModel)
 {

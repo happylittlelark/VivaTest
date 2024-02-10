@@ -1,31 +1,25 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "VTPlayer.h"
-
-#include <AIController.h>
-#include <EnhancedInputComponent.h>
-#include <EnhancedInputSubsystems.h>
-#include <InputMappingContext.h>
-
-#include <GameFramework/PlayerStart.h>
-#include <GameFramework/PlayerState.h>
-
-#include <Kismet/GameplayStatics.h>
-
-#include <Net/UnrealNetwork.h>
-
-#include "VTPlayerStart.h"
-#include "VTPlayerState.h"
-#include "VTProjectile.h"
-
-#include "VivaTest/VTTankPawn.h"
+#include "Player/VTPlayer.h"
+#include "AIController.h"
+#include "EnhancedInputComponent.h"
+#include "EnhancedInputSubsystems.h"
+#include "InputMappingContext.h"
+#include "GameFramework/PlayerStart.h"
+#include "GameFramework/PlayerState.h"
+#include "Kismet/GameplayStatics.h"
+#include "Net/UnrealNetwork.h"
+#include "Player/VTPlayerStart.h"
+#include "Player/VTPlayerState.h"
+#include "Player/VTProjectile.h"
+#include "Player/VTTankPawn.h"
 
 // Sets default values
 AVTPlayer::AVTPlayer()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+	PrimaryActorTick.bCanEverTick = false;
 
 }
 
@@ -205,13 +199,6 @@ void AVTPlayer::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetim
 
 	DOREPLIFETIME(AVTPlayer, TankPawn);
 	DOREPLIFETIME(AVTPlayer, TankAIController);
-}
-
-// Called every frame
-void AVTPlayer::Tick(float DeltaTime)
-{
-	Super::Tick(DeltaTime);
-
 }
 
 // Called to bind functionality to input

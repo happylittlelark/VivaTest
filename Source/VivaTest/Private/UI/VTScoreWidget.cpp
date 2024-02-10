@@ -1,12 +1,12 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "VTScoreWidget.h"
+#include "UI/VTScoreWidget.h"
 
-#include <Components/TextBlock.h>
+#include "Components/TextBlock.h"
 
 #include "CommonNumericTextBlock.h"
-#include "VTScoreViewModel.h"
+#include "UI/VTScoreViewModel.h"
 #include "VTUtilities.h"
 
 void UVTScoreWidget::NativeOnListItemObjectSet(UObject* ListItemObject)

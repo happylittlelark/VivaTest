@@ -1,7 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "VTScoreViewModel.h"
+#include "UI/VTScoreViewModel.h"
 
 float UVTScoreViewModel::GetScore() const
 {

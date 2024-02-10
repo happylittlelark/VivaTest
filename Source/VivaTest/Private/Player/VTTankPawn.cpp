@@ -1,14 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "VTTankPawn.h"
-
-#include <GameplayTasksComponent.h>
-
-#include <Camera/CameraComponent.h>
-
-#include <GameFramework/SpringArmComponent.h>
-
+#include "Player/VTTankPawn.h"
+#include "GameplayTasksComponent.h"
+#include "Camera/CameraComponent.h"
+#include "GameFramework/SpringArmComponent.h"
 
 // Sets default values
 AVTTankPawn::AVTTankPawn(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)

@@ -20,8 +20,6 @@ class VIVATEST_API AVTPlayer : public APawn
 public:
 	// Sets default values for this pawn's properties
 	AVTPlayer();
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
 
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;

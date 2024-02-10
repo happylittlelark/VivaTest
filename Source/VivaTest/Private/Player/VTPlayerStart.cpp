@@ -1,9 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "VTPlayerStart.h"
-
-#include <Components/SphereComponent.h>
+#include "Player/VTPlayerStart.h"
+#include "Components/SphereComponent.h"
 
 AVTPlayerStart::AVTPlayerStart(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {

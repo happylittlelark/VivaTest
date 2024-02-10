@@ -1,10 +1,9 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "VTPlayerState.h"
-
-#include "VTHUD.h"
-#include "VTScoreViewModel.h"
+#include "Player/VTPlayerState.h"
+#include "UI/VTHUD.h"
+#include "UI/VTScoreViewModel.h"
 
 void AVTPlayerState::BeginPlay()
 {

@@ -1,15 +1,11 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "VTProjectile.h"
-
-#include <Components/BoxComponent.h>
-
-#include <Engine/DamageEvents.h>
-
-#include <GameFramework/ProjectileMovementComponent.h>
-
-#include "VTPlayer.h"
+#include "Player/VTProjectile.h"
+#include "Components/BoxComponent.h"
+#include "Engine/DamageEvents.h"
+#include "GameFramework/ProjectileMovementComponent.h"
+#include "Player/VTPlayer.h"
 
 // Sets default values
 AVTProjectile::AVTProjectile()

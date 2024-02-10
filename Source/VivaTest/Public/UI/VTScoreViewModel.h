@@ -16,18 +16,12 @@ class VIVATEST_API UVTScoreViewModel : public UMVVMViewModelBase
 
 public:
 
-	UFUNCTION(BlueprintPure, FieldNotify)
 	float GetScore() const;
-	UFUNCTION()
 	void SetScore(const float NewScore);
 
-	UFUNCTION(BlueprintPure, FieldNotify)
 	const FString& GetPlayerName() const;
-	UFUNCTION()
 	void SetPlayerName(const FString& NewPlayerName);
 	
-protected:
-
 private:
 	UPROPERTY(BlueprintReadOnly, FieldNotify, Setter, Getter, meta=(AllowPrivateAccess))
 	float Score;
