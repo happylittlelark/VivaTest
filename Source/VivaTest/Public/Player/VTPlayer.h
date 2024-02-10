@@ -12,6 +12,8 @@ class AVTProjectile;
 class AAIController;
 class AVTTankPawn;
 
+DECLARE_LOG_CATEGORY_EXTERN(LogVTPlayer, Log, All);
+
 UCLASS()
 class VIVATEST_API AVTPlayer : public APawn
 {
@@ -80,4 +82,6 @@ protected:
 	UPROPERTY(EditDefaultsOnly)
 	TMap<FName, TSoftObjectPtr<UInputAction>> InputActionMap;
 
+	UPROPERTY(EditDefaultsOnly)
+	float ProjectileForce = 100000.f;
 };

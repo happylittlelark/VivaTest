@@ -13,15 +13,14 @@ void AVTGameState::AddPlayerState(APlayerState* PlayerState)
 
 	if (!bHasAuthority)
 	{
-		AVTPlayerState* VTPlayerState = Cast<AVTPlayerState>(PlayerState);
-		
-		if (!IsValid(VTPlayerState))
-		{
-			return;
-		}
-		
 		for (APlayerState* Player : PlayerArray)
 		{
+			AVTPlayerState* VTPlayerState = Cast<AVTPlayerState>(Player);
+
+			if (!IsValid(VTPlayerState))
+			{
+				continue;
+			}
 			VTPlayerState->ClientInitialiseScoreWidget(PlayerState);
 		}
 	}

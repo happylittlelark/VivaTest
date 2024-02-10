@@ -15,12 +15,13 @@
 #include "Player/VTProjectile.h"
 #include "Player/VTTankPawn.h"
 
+DEFINE_LOG_CATEGORY(LogVTPlayer);
+
 // Sets default values
 AVTPlayer::AVTPlayer()
 {
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = false;
-
 }
 
 // Called when the game starts or when spawned
@@ -135,8 +136,7 @@ void AVTPlayer::ServerSpawnProjectile_Implementation()
 
 	if (IsValid(Projectile))
 	{
-		// TODO: Make this better
-		Projectile->Fire(100000.f);
+		Projectile->Fire(ProjectileForce);
 	}
 }
 
@@ -150,6 +150,8 @@ void AVTPlayer::SpawnTank()
 {
 	if (!IsValid(TankAIControllerClass))
 	{
+		UE_LOG(LogVTPlayer, Error, TEXT("TankAIControllerClass was invalid, therefore Tank not spawned"));
+
 		return;
 	}
 	
@@ -158,6 +160,8 @@ void AVTPlayer::SpawnTank()
 
 	if (OutActors.Num() == 0)
 	{
+		UE_LOG(LogVTPlayer, Error, TEXT("Couldn't find any active Player Starts, therefore Tank not spawned"));
+
 		return;
 	}
 
@@ -176,7 +180,7 @@ void AVTPlayer::SpawnTank()
 
 	if (!IsValid(TankAIController))
 	{
-	//TODO:Log error
+		UE_LOG(LogVTPlayer, Error, TEXT("Couldn't spawn Tank Controller, therefore Tank not spawned"));
 		return;
 	}
 
@@ -184,7 +188,8 @@ void AVTPlayer::SpawnTank()
 
 	if (!IsValid(TankPawn))
 	{
-	//TODO:Log error
+		UE_LOG(LogVTPlayer, Error, TEXT("Couldn't spawn TankPawn, therefore Tank not spawned"));
+
 		return;
 	}
 
