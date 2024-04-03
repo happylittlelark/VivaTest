@@ -27,8 +27,6 @@ public:
 	TSoftClassPtr<UVTScoreListWidget> ScoreListWidgetClass;
 	
 protected:
-	// UPROPERTY(Transient)
-	// TObjectPtr<UVTScoreWidget> ScoreWidget;
 	UPROPERTY(Transient)
 	TObjectPtr<UVTScoreListWidget> ScoreListWidget;
 };

@@ -36,20 +36,6 @@ AVTTankPawn::AVTTankPawn(const FObjectInitializer& ObjectInitializer) : Super(Ob
 	SetReplicateMovement(true);
 }
 
-// Called when the game starts or when spawned
-void AVTTankPawn::BeginPlay()
-{
-	Super::BeginPlay();
-	
-}
-
-// Called to bind functionality to input
-void AVTTankPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-{
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-}
-
 FTransform AVTTankPawn::GetProjectileSpawnTransform() const
 {
 	if (IsValid(MuzzlePoint))

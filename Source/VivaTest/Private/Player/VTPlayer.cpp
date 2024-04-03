@@ -225,16 +225,15 @@ void AVTPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 		return;
 	}
 	
-	//if (const ULocalPlayer* LocalPlayer = Cast<ULocalPlayer>())
-	{
-		if (UEnhancedInputLocalPlayerSubsystem* InputSystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
-		{
-			if (!InputMappingContext.IsNull())
-			{
-				InputSystem->AddMappingContext(InputMappingContext.LoadSynchronous(), 1);
-			}
-		}
-	}
+
+    if (UEnhancedInputLocalPlayerSubsystem* InputSystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+    {
+        if (!InputMappingContext.IsNull())
+        {
+            InputSystem->AddMappingContext(InputMappingContext.LoadSynchronous(), 1);
+        }
+    }
+	
 	
 	for (const auto& InputMapInfo : InputActionMap)
 	{

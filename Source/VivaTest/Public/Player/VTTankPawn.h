@@ -26,9 +26,6 @@ public:
 	// Sets default values for this pawn's properties
 	AVTTankPawn(const FObjectInitializer& ObjectInitializer);
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 	FTransform GetProjectileSpawnTransform() const;
 	void Zoom(const float Value) const;
 	const FTransform& GetCameraTransform() const;
@@ -37,11 +34,6 @@ public:
 	virtual float TakeDamage(float DamageAmount, struct FDamageEvent const& DamageEvent, class AController* EventInstigator, AActor* DamageCauser) override;
 
 	FOnTankPawnDestroyedSignature OnTankPawnDestroyed;
-
-protected:
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
-
 
 private:
 	UPROPERTY(Category=Character, VisibleAnywhere, meta=(AllowPrivateAccess = "true"))
